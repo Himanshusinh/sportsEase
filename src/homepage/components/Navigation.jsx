@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -48,6 +51,10 @@ const Navigation = () => {
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
+
+  const handleacademy = () => {
+    navigate('/academy');
+  }
 
   return (
     <div>
@@ -228,7 +235,7 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-          <section className="w-86 h-96 ml-24 flex justify-center items-center -mt-20">
+          <section className="w-86 h-96 ml-24 flex justify-center items-center -mt-44">
         <div className="relative w-full h-full">
           {/* Current Image */}
           <img
@@ -271,7 +278,7 @@ const Navigation = () => {
               ></span>
             ))}
           </div>
-          <h1 className="font-bold text-4xl flex justify-center mt-5">GUNI SPORTS</h1>
+          <button className="font-bold text-2xl ml-64 mt-5 bg-black text-white p-3 rounded-2xl" onClick={handleacademy}>GUNI Academy</button>
         </div>
 
      
