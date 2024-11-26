@@ -26,7 +26,7 @@ const Navigation = () => {
       <header className="bg-[#FC7D65] p-4 flex justify-between items-center">
         <div className="flex flex-col">
           <div>
-            <a className="ml-5">Location</a>
+            <a className="ml-5 text-white">Location</a>
           </div>
           <div className="flex">
             <img
@@ -34,8 +34,8 @@ const Navigation = () => {
               src="src/assets/homepage/location.svg"
               alt=""
             />
-            <span>Mehsana, Gujarat</span>
-            <img className="w-3" src="src/assets/homepage/down.svg" alt="" />
+            <span className="text-white text">Mehsana, Gujarat</span>
+            <img className="w-3 ml-2" src="src/assets/homepage/down.svg" alt="" />
             <img
               className="w-4 ml-5"
               src="src/assets/homepage/bell.svg"
