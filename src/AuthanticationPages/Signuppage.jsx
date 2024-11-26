@@ -2,6 +2,7 @@ import { auth, db, googleProvider } from "../auth/firebase.js"; // Import Fireba
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // For navigation
 
 const Signuppage = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +11,8 @@ const Signuppage = () => {
     password: "",
     confirmPassword: "",
   });
-  const [passwordError, setPasswordError] = useState(""); // To track password mismatch errors
+  const [passwordError, setPasswordError] = useState(""); 
+  const navigate = useNavigate(); 
 
   // Handle input changes
   const handleChange = (e) => {
@@ -51,6 +53,9 @@ const Signuppage = () => {
       });
 
       alert("Signup successful!");
+      // Redirect to homepage after successful signup
+      navigate("/homepage");
+
       // Reset form data after successful signup
       setFormData({
         username: "",
@@ -78,6 +83,8 @@ const Signuppage = () => {
       });
 
       alert("Google login successful!");
+      // Redirect to homepage after Google login
+      navigate("/homepage");
     } catch (error) {
       console.error("Error with Google login:", error.message);
       alert(error.message);

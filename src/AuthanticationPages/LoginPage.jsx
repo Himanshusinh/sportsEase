@@ -2,12 +2,14 @@ import { useState } from "react";
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth, googleProvider } from "../auth/firebase.js"; // Import Firebase setup and Google provider
 import { signInWithPopup } from "firebase/auth"; // For Google Auth
+import { useNavigate } from "react-router-dom"; // For navigation
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // To store error messages
   const [success, setSuccess] = useState(""); // For success message (e.g., password reset)
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLogin = async () => {
     try {
@@ -17,6 +19,7 @@ const LoginPage = () => {
       setEmail("");
       setPassword("");
       setError(""); // Clear any errors after successful login
+      navigate("/homepage"); // Redirect to homepage
     } catch (err) {
       console.error("Error during login:", err.message);
       setError("Wrong email or password. Please try again."); // Display error
@@ -28,6 +31,7 @@ const LoginPage = () => {
       const result = await signInWithPopup(auth, googleProvider);
       console.log(result);
       alert("Google Login successful!");
+      navigate("/homepage"); // Redirect to homepage
     } catch (err) {
       console.error("Google Login Error:", err.message);
       setError("Google login failed. Please try again.");
@@ -65,7 +69,7 @@ const LoginPage = () => {
         </div>
       </div>
 
-      <div className="">
+      <div>
         <div className="flex flex-col mt-24 gap-5">
           <input
             className="w-96 h-14 pl-3"
@@ -109,7 +113,10 @@ const LoginPage = () => {
           <a>----------or login with-----------</a>
         </div>
 
-        <div className="flex justify-center bg-white rounded-2xl h-14 mt-10 cursor-pointer" onClick={handleGoogleLogin}>
+        <div
+          className="flex justify-center bg-white rounded-2xl h-14 mt-10 cursor-pointer"
+          onClick={handleGoogleLogin}
+        >
           <img
             className="w-11 cursor-pointer"
             src="src/assets/authImages/google.svg"
