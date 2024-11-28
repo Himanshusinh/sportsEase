@@ -53,7 +53,11 @@ const Navigation = () => {
   };
 
   const handleacademy = () => {
-    navigate('/academy');
+    navigate('/aboutus');
+  }
+
+  const handleseeall = () => {
+    navigate('/drill');
   }
 
   return (
@@ -135,7 +139,7 @@ const Navigation = () => {
                   href="../index.html"
                   className="text-black text-xl font-bold block hover:text-gray-500"
                 >
-                  Home
+                  My Profile
                 </a>
               </li>
               <li className="py-2">
@@ -155,12 +159,12 @@ const Navigation = () => {
                 </a>
               </li>
               <li className="py-2">
-                <a
+                {/* <a
                   href="../contact-form-10 2/index.html"
                   className="text-black text-xl font-bold block hover:text-gray-500"
                 >
                   Contact Us
-                </a>
+                </a> */}
               </li>
             </ul>
           </div>
@@ -180,7 +184,7 @@ const Navigation = () => {
           <div className="w-1/2">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-bold">Drills & sessions</h2>
-              <a href="#" className="text-blue-600">
+              <a href="#" className="text-blue-600" onClick={handleseeall}>
                 See All
               </a>
             </div>
