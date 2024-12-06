@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Mehsana from "../subpages/Mehsana";
 import Gunisports from "../subpages/Gunisports";
 import Karnavaticlub from "../subpages/Karnavaticlub";
@@ -49,6 +50,22 @@ const Homepage = () => {
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
+
+  const navigate = useNavigate();
+
+
+  const handlemyprofile = () => {
+    navigate('')
+  }
+  const handleproject = () => {
+    navigate('')
+  }
+  const handleaboutus = () => {
+    navigate('')
+  }
+  const handlesaifeatures = () => {
+    navigate('/aifeatures');
+  }
 
   return (
     <div>
@@ -143,15 +160,15 @@ const Homepage = () => {
           >
             <li className="py-2">
               <a
-                href="../index.html"
                 className="text-black text-xl font-bold hover:text-gray-500"
+                onClick={handlemyprofile}
               >
                 My Profile
               </a>
             </li>
             <li className="py-2">
               <a
-                href="../project_section/index.html"
+                onClick={handleproject}
                 className="text-black text-xl font-bold hover:text-gray-500"
               >
                 Project
@@ -159,10 +176,18 @@ const Homepage = () => {
             </li>
             <li className="py-2">
               <a
-                href="./index.html"
+                onClick={handleaboutus}
                 className="text-black text-xl font-bold hover:text-gray-500"
               >
                 About Us
+              </a>
+            </li>
+            <li className="py-2">
+              <a
+                onClick={handlesaifeatures}
+                className="text-black text-xl font-bold hover:text-gray-500"
+              >
+                Ai Features
               </a>
             </li>
           </ul>

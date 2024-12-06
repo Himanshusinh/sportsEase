@@ -7,6 +7,7 @@ import Homepage from './homepage/Homepage';
 import Academy from './Academyscreen/Academy';
 import Drills from './Drills/Drills';
 import Aboutus from './AboutSportsAcademy/Aboutus';
+import Aifeatures from './homepage/components/Aifeatures';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/academy' element={<Academy />}></Route>
           <Route path='/drill' element={<Drills />}></Route>
           <Route path='/aboutus' element={<Aboutus />}></Route>
+          <Route path='/aifeatures' element={<Aifeatures />}></Route>
         </Routes>
       </Router>
 
